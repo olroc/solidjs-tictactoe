@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-solidjs'
 
-import Switch, { PlayerMark, SwitchProps } from '../components/atoms/Switch'
+import Switch, { SwitchProps } from '../components/atoms/Switch'
 import { createSignal } from 'solid-js'
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction

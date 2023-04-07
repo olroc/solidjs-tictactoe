@@ -1,8 +1,6 @@
 import clsx from 'clsx'
 
-export type PlayerMark = 'circle' | 'cross'
-
-type SwitchProps = {
+export type SwitchProps = {
   class?: string
   value: PlayerMark
   onSelect: (selectedValue: PlayerMark) => void
@@ -14,14 +12,14 @@ export default function Switch(props: SwitchProps) {
       class={clsx(
         props.class,
         'relative flex w-full rounded-xl bg-mirage p-2',
-        "after:absolute after:bottom-[9px] after:top-[9px] after:z-10 after:w-[calc(50%-8px)] after:rounded-xl after:bg-casper after:content-['']",
-        'after:transition-translate after:duration-300 after:ease-in',
+        "after:absolute after:bottom-2 after:top-2 after:z-10 after:w-[calc(50%-0.5rem)] after:rounded-xl after:bg-casper after:content-['']",
+        'after:transition-translate after:duration-500 after:ease-in-out',
         props.value === 'circle' ? 'after:translate-x-[100%]' : ''
       )}
     >
       <button
         class={clsx(
-          'z-20 flex h-full w-[50%] items-center justify-center rounded-xl px-20 py-3 transition duration-200 ease-out hover:bg-casper/5'
+          'z-20 h-full flex-1 items-center justify-center rounded-xl py-3 transition duration-200 ease-out hover:bg-casper/5'
         )}
         role="checkbox"
         aria-label="Cross mark"
@@ -30,8 +28,8 @@ export default function Switch(props: SwitchProps) {
       >
         <svg
           class={clsx(
-            'w-[32px]',
-            'transition-fill duration-300 ease-in',
+            'inline w-8',
+            'transition-fill ease delay-100 duration-300',
             props.value === 'circle' ? 'fill-casper' : 'fill-mirage'
           )}
           viewBox="0 0 64 64"
@@ -41,7 +39,7 @@ export default function Switch(props: SwitchProps) {
       </button>
       <button
         class={clsx(
-          'z-20 flex w-[50%] items-center justify-center rounded-xl px-20 py-3 transition duration-200 ease-out hover:bg-casper/5'
+          'z-20 flex-1 items-center justify-center rounded-xl py-3 transition duration-200 ease-out hover:bg-casper/5'
         )}
         role="checkbox"
         aria-label="Circle mark"
@@ -50,8 +48,8 @@ export default function Switch(props: SwitchProps) {
       >
         <svg
           class={clsx(
-            'w-[32px]',
-            'transition-fill ease duration-300',
+            'inline w-8',
+            'transition-fill ease delay-100 duration-300',
             props.value === 'cross' ? 'fill-casper' : 'fill-mirage'
           )}
           viewBox="0 0 64 64"
