@@ -5,7 +5,11 @@ module.exports = {
     extend: {
       colors: {
         'big-stone': '10212a',
-        casper: '#a8bfc9',
+        casper: {
+          dark: '#6b8997',
+          DEFAULT: '#a8bfc9',
+          light: '#dbe8ed',
+        },
         mirage: '#1a2a33',
         saffron: {
           dark: '#cc8b13',
@@ -15,7 +19,7 @@ module.exports = {
         turquoise: {
           dark: '#118c87',
           DEFAULT: '#31c3bd',
-          light: '#65e9e4'
+          light: '#65e9e4',
         },
         'te-papa-green': '#1f3641',
       },
