@@ -10,6 +10,7 @@ const clickOutside = clickOutsideDirective
 type ModalProps = {
   class?: string
   isOpen?: boolean
+  elementToFocusOnClose?: HTMLButtonElement
   closeModal: () => void
   children: JSX.Element
 }
@@ -36,7 +37,12 @@ export default function Modal(props: ModalProps) {
             'ease transition-all duration-[400ms]',
             props.isOpen ? 'top-0 opacity-100' : 'top-[70%] opacity-0'
           )}
-          use:clickOutside={props.closeModal}
+          use:clickOutside={() => {
+            if (props.isOpen) {
+              props.closeModal()
+              props.elementToFocusOnClose?.focus()
+            }
+          }}
         >
           {props.children}
         </div>

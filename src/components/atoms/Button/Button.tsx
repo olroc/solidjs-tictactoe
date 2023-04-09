@@ -24,27 +24,21 @@ export default function Button(props: ButtonProps) {
   const [isDown, setDown] = createSignal(false)
 
   return (
-    <div
-      class={clsx(
-        props.class,
-        'relative',
-        "after:absolute after:left-0 after:top-[8px] after:z-10 after:h-full after:w-full after:rounded-2xl after:content-['']",
-        props.type === 'primary' && 'after:bg-saffron-dark',
-        props.type === 'secondary' && 'after:bg-turquoise-dark',
-        props.type === 'tertiary' && 'after:bg-casper-dark'
-      )}
-    >
+    <div class={props.class}>
       <button
         ref={props.ref}
         class={clsx(
-          'relative z-20 block rounded-2xl px-4 py-4 text-base font-semibold tracking-wider text-mirage sm:px-16 sm:text-xl',
+          'relative block rounded-2xl px-4 pb-5 pt-4 text-base font-semibold tracking-wider text-mirage sm:px-16 sm:text-xl',
           props.type === 'primary' &&
-            'w-full bg-saffron hover:bg-saffron-light',
+            'w-full bg-saffron shadow-saffron-dark hover:bg-saffron-light',
           props.type === 'secondary' &&
-            'w-full bg-turquoise hover:bg-turquoise-light',
-          props.type === 'tertiary' && 'bg-casper hover:bg-casper-light',
-          'transition-top ease duration-75',
-          isDown() ? 'top-[5px]' : 'top-0'
+            'w-full bg-turquoise shadow-turquoise-dark hover:bg-turquoise-light',
+          props.type === 'tertiary' &&
+            'bg-casper shadow-casper-dark hover:bg-casper-light',
+          'transition-all duration-75 ease-out',
+          isDown()
+            ? 'top-1 mb-1 pb-4 shadow-[inset_0_-3px_0]'
+            : 'top-0 shadow-[inset_0_-8px_0_#cc8b13]'
         )}
         onMouseDown={() => setDown(true)}
         onMouseUp={(e) => setDown(false)}

@@ -10,8 +10,11 @@ const App: Component = () => {
   const [playerMark, setPlayerMark] = createSignal<PlayerMark>('circle')
   const [isModalOpen, setModalOpen] = createSignal(false)
 
-  // Allows the cancel button to be focused when entering the modal for accessibility purpose
+  // Allows the cancel button to be focused when entering the modal
   let cancelButtonRef: HTMLButtonElement
+  // Allows the PVP button to be focused when exiting the modal
+  let pvpButtonRef: HTMLButtonElement
+
   createEffect(() => isModalOpen() && cancelButtonRef.focus())
 
   return (
@@ -24,7 +27,12 @@ const App: Component = () => {
 
         <div class="my-10 flex w-full flex-col items-center justify-center rounded-2xl bg-te-papa-green px-[24px] pb-8 pt-6 tracking-wide shadow-[inset_0_-8px_0_rgba(0,0,0,0.3)]">
           <h1 class="text-lg font-bold text-casper">PICK PLAYER 1'S MARK</h1>
-          <Switch class="my-6" value={playerMark()} onSelect={setPlayerMark} />
+          <Switch
+            class="my-6"
+            value={playerMark()}
+            onSelect={setPlayerMark}
+            isFocusable={!isModalOpen()}
+          />
           <p class="text-sm font-medium tracking-wider text-casper opacity-50">
             REMEMBER: X GOES FIRST
           </p>
@@ -37,6 +45,7 @@ const App: Component = () => {
           isFocusable={!isModalOpen()}
         />
         <Button
+          ref={pvpButtonRef!}
           class="w-full"
           label="NEW GAME (VS PLAYER)"
           type="secondary"
@@ -45,7 +54,11 @@ const App: Component = () => {
         />
       </div>
 
-      <Modal isOpen={isModalOpen()} closeModal={() => setModalOpen(false)}>
+      <Modal
+        isOpen={isModalOpen()}
+        closeModal={() => setModalOpen(false)}
+        elementToFocusOnClose={pvpButtonRef!}
+      >
         <div class="flex flex-col text-2xl font-bold tracking-wider text-casper">
           <div class="flex items-end">
             <h3>SEARCHING FOR OPPONENT </h3>
@@ -60,7 +73,10 @@ const App: Component = () => {
               ref={cancelButtonRef!}
               label="CANCEL"
               type="tertiary"
-              onClick={() => setModalOpen(false)}
+              onClick={() => {
+                setModalOpen(false)
+                pvpButtonRef.focus()
+              }}
             />
           </div>
         </div>

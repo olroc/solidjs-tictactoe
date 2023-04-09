@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-solidjs'
 
-import Button from '../components/atoms/Button'
+import Button from '../components/atoms/Button/Button'
 
 const meta = {
   title: 'Atoms/Button',

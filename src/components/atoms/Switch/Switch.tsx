@@ -1,12 +1,16 @@
 import clsx from 'clsx'
+import { mergeProps } from 'solid-js'
 
 export type SwitchProps = {
   class?: string
   value: PlayerMark
   onSelect: (selectedValue: PlayerMark) => void
+  isFocusable?: boolean
 }
 
 export default function Switch(props: SwitchProps) {
+  props = mergeProps({ isFocusable: true }, props)
+
   return (
     <div
       class={clsx(
@@ -25,6 +29,7 @@ export default function Switch(props: SwitchProps) {
         aria-label="Cross mark"
         aria-checked={props.value === 'cross'}
         onClick={() => props.onSelect('cross')}
+        tabIndex={props.isFocusable ? 0 : -1}
       >
         <svg
           class={clsx(
@@ -45,6 +50,7 @@ export default function Switch(props: SwitchProps) {
         aria-label="Circle mark"
         aria-checked={props.value === 'circle'}
         onClick={() => props.onSelect('circle')}
+        tabIndex={props.isFocusable ? 0 : -1}
       >
         <svg
           class={clsx(
