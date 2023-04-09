@@ -37,7 +37,7 @@ export default function Button(props: ButtonProps) {
             'bg-casper shadow-casper-dark hover:bg-casper-light',
           'transition-all duration-75 ease-out',
           isDown()
-            ? 'top-1 mb-1 pb-4 shadow-[inset_0_-3px_0]'
+            ? 'top-1 mb-1 pb-[16px] shadow-[inset_0_-3px_0]'
             : 'top-0 shadow-[inset_0_-8px_0_#cc8b13]'
         )}
         onMouseDown={() => setDown(true)}
