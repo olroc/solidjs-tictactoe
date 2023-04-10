@@ -1,3 +1,4 @@
+import type { Component } from 'solid-js'
 import { createSignal, mergeProps } from 'solid-js'
 import clsx from 'clsx'
 
@@ -6,7 +7,7 @@ import clickOutsideDirective from '../../../directives/clickOutside'
 // Needed because of TS compiler, see https://github.com/solidjs/solid/discussions/845
 const clickOutside = clickOutsideDirective
 
-export type ButtonProps = {
+export interface ButtonProps {
   ref?: HTMLButtonElement
   class?: string
   type?: 'primary' | 'secondary' | 'tertiary'
@@ -15,10 +16,10 @@ export type ButtonProps = {
   isFocusable?: boolean
 }
 
-export default function Button(props: ButtonProps) {
-  props = mergeProps(
+const Button: Component<ButtonProps> = (_props) => {
+  const props = mergeProps(
     { type: 'primary', label: '', isFocusable: true } as ButtonProps,
-    props
+    _props
   )
 
   const [isDown, setDown] = createSignal(false)
@@ -42,12 +43,16 @@ export default function Button(props: ButtonProps) {
         )}
         onMouseDown={() => setDown(true)}
         onMouseUp={(e) => setDown(false)}
-        onClick={() => props.onClick()}
+        onClick={() => {
+          props.onClick()
+        }}
         use:clickOutside={() => setDown(false)}
-        tabIndex={props.isFocusable ? 0 : -1}
+        tabIndex={props.isFocusable ?? true ? 0 : -1}
       >
         {props.label}
       </button>
     </div>
   )
 }
+
+export default Button

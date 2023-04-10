@@ -1,10 +1,11 @@
+/* eslint-disable solid/reactivity */
 import { createSignal } from 'solid-js'
 import { describe, expect, it } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import { render } from '@solidjs/testing-library'
 import '@testing-library/jest-dom'
 
-import Switch, { PlayerMark } from './Switch'
+import Switch from './Switch'
 
 describe('Switch component', () => {
   it('should select the cross value when passed as prop', () => {

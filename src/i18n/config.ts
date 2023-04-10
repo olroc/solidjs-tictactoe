@@ -21,8 +21,8 @@ const i18n = i18next
         loadPath: '/i18n/{{lng}}/{{ns}}.json',
       },
     },
-    (err, t) => {
-      if (err) return console.error(err)
+    (err: Error, t) => {
+      if (err !== undefined) console.error(err)
     }
   )
 export default i18n

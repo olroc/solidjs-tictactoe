@@ -1,7 +1,11 @@
-type CrossProps = {
+import type { Component } from 'solid-js'
+
+interface CrossProps {
   class?: string
 }
 
-export default function Cross(props: CrossProps) {
-  return <img class={props.class} src="/img/icon-x.0b42b1fa.svg"></img>
-}
+const Cross: Component<CrossProps> = (props) => (
+  <img class={props.class} src="/img/icon-x.0b42b1fa.svg" />
+)
+
+export default Cross

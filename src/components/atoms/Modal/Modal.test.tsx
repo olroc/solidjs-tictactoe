@@ -1,5 +1,4 @@
 import { describe, expect, it, vi } from 'vitest'
-import userEvent from '@testing-library/user-event'
 import { render } from '@solidjs/testing-library'
 import '@testing-library/jest-dom'
 

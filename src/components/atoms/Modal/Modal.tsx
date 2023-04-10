@@ -1,13 +1,15 @@
+import type { JSX, Component } from 'solid-js'
+
 import clsx from 'clsx'
-import { JSX, mergeProps } from 'solid-js'
+import { mergeProps } from 'solid-js'
+import { Portal } from 'solid-js/web'
 
 import clickOutsideDirective from '../../../directives/clickOutside'
-import { Portal } from 'solid-js/web'
 
 // Needed because of TS compiler, see https://github.com/solidjs/solid/discussions/845
 const clickOutside = clickOutsideDirective
 
-type ModalProps = {
+interface ModalProps {
   class?: string
   isOpen?: boolean
   elementToFocusOnClose?: HTMLButtonElement
@@ -15,8 +17,8 @@ type ModalProps = {
   children: JSX.Element
 }
 
-export default function Modal(props: ModalProps) {
-  props = mergeProps({ isOpen: false }, props)
+const Modal: Component<ModalProps> = (_props) => {
+  const props = mergeProps({ isOpen: false }, _props)
 
   return (
     <Portal>
@@ -50,3 +52,5 @@ export default function Modal(props: ModalProps) {
     </Portal>
   )
 }
+
+export default Modal
