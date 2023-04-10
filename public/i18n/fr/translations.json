@@ -1,0 +1,12 @@
+{
+  "main": {
+    "pickMark": {
+      "label": "CHOISISSEZ LE SYMBOLE DU JOUEUR",
+      "reminder": "NB: LE JOUEUR AVEC 'X' COMMENCE LA PARTIE"
+    },
+    "newPVEGame": "NOUVELLE PARTIE (PVE)",
+    "newPVPGame": "NOUVELLE PARTIE (PVP)",
+    "searchingOpponent": "RECHERCHE D'ADVERSAIRE",
+    "cancel": "ANNULER"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "main": {
+    "pickMark": {
+      "label": "PICK PLAYER 1'S MARK",
+      "reminder": "REMEMBER: X GOES FIRST"
+    },
+    "newPVEGame": "NEW GAME (VS CPU)",
+    "newPVPGame": "NEW GAME (VS PLAYER)",
+    "searchingOpponent": "SEARCHING FOR OPPONENT",
+    "cancel": "CANCEL"
+  }
+}

@@ -45,6 +45,9 @@
   "dependencies": {
     "@types/testing-library__jest-dom": "^5.14.5",
     "clsx": "^1.2.1",
+    "i18next": "^22.4.14",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
     "solid-js": "^1.6.10"
   }
 }
