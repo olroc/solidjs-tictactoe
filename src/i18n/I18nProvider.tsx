@@ -8,7 +8,7 @@ interface i18nProviderProps {
   children: JSX.Element
 }
 
-export const I18nProvider: Component<i18nProviderProps> = (props) => {
+export const I18nProvider: Component<i18nProviderProps> = props => {
   const i18nSetup: () => i18n = () => props.i18n
 
   return (

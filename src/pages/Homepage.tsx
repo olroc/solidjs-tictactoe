@@ -1,13 +1,12 @@
 import type { Component } from 'solid-js'
 import { createEffect, createSignal } from 'solid-js'
 
-import Cross from '../components/atoms/Cross'
-import Circle from '../components/atoms/Circle'
 import Switch from '../components/atoms/Switch/Switch'
 import Button from '../components/atoms/Button/Button'
 import Modal from '../components/atoms/Modal/Modal'
 import { useI18n } from '../i18n/context'
 import store from '../store/store'
+import Marks from '../components/atoms/Marks/Marks'
 
 const HomePage: Component = () => {
   const [globalStore, setGlobalStore] = store
@@ -33,10 +32,7 @@ const HomePage: Component = () => {
         aria-disabled={isModalOpen()}
         class="relative flex max-w-[700px] flex-col items-center justify-center px-[24px] text-center"
       >
-        <div class="flex items-center justify-center">
-          <Cross class="mr-2 h-[32px] w-[32px]" />
-          <Circle class="h-[32px] w-[32px]" />
-        </div>
+        <Marks />
 
         <div class="my-10 flex w-full flex-col items-center justify-center rounded-2xl bg-te-papa-green px-[24px] pb-8 pt-6 tracking-wide shadow-[inset_0_-8px_0_rgba(0,0,0,0.3)]">
           <h1 class="mx-10 text-lg font-bold text-casper">
@@ -45,7 +41,7 @@ const HomePage: Component = () => {
           <Switch
             class="my-6"
             value={globalStore.playerMark}
-            onSelect={(playerMark) => {
+            onSelect={playerMark => {
               setGlobalStore({ playerMark })
             }}
             isFocusable={!isModalOpen()}

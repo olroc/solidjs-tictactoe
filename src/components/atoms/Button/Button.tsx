@@ -16,7 +16,7 @@ export interface ButtonProps {
   isFocusable?: boolean
 }
 
-const Button: Component<ButtonProps> = (_props) => {
+const Button: Component<ButtonProps> = _props => {
   const props = mergeProps(
     { type: 'primary', label: '', isFocusable: true } as ButtonProps,
     _props

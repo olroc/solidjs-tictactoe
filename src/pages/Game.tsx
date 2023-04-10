@@ -8,7 +8,7 @@ interface GamePageProps {
   class?: string
 }
 
-const GamePage: Component<GamePageProps> = (props) => {
+const GamePage: Component<GamePageProps> = props => {
   const [, setGlobalStore] = store
 
   return (

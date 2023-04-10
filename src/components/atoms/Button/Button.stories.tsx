@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from 'storybook-solidjs'
 
-import Button from '../components/atoms/Button/Button'
+import Button from './Button'
 
 const meta = {
   title: 'Atoms/Button',
   component: Button,
   tags: ['autodocs'],
   decorators: [
-    (Story) => (
+    Story => (
       <div class="flex items-center justify-center bg-mirage py-10">
         <Story />
       </div>

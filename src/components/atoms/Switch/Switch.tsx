@@ -9,7 +9,7 @@ export interface SwitchProps {
   isFocusable?: boolean
 }
 
-const Switch: Component<SwitchProps> = (_props) => {
+const Switch: Component<SwitchProps> = _props => {
   const props = mergeProps({ isFocusable: true }, _props)
 
   return (

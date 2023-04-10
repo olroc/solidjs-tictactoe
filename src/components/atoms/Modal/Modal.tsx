@@ -17,7 +17,7 @@ interface ModalProps {
   children: JSX.Element
 }
 
-const Modal: Component<ModalProps> = (_props) => {
+const Modal: Component<ModalProps> = _props => {
   const props = mergeProps({ isOpen: false }, _props)
 
   return (
