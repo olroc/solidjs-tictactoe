@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js'
+import type { Component, JSX } from 'solid-js'
 import { createSignal, mergeProps } from 'solid-js'
 import clsx from 'clsx'
 
@@ -11,14 +11,14 @@ export interface ButtonProps {
   ref?: HTMLButtonElement
   class?: string
   type?: 'primary' | 'secondary' | 'tertiary'
-  label: string
   onClick: () => void
   isFocusable?: boolean
+  children?: JSX.Element
 }
 
 const Button: Component<ButtonProps> = _props => {
   const props = mergeProps(
-    { type: 'primary', label: '', isFocusable: true } as ButtonProps,
+    { type: 'primary', isFocusable: true } as ButtonProps,
     _props
   )
 
@@ -29,7 +29,7 @@ const Button: Component<ButtonProps> = _props => {
       <button
         ref={props.ref}
         class={clsx(
-          'relative block rounded-2xl px-4 pb-5 pt-4 text-base font-semibold tracking-wider text-mirage sm:px-16 sm:text-xl',
+          'relative block rounded-2xl px-4 pb-5 pt-4 text-base font-semibold tracking-wider text-mirage sm:text-xl',
           props.type === 'primary' &&
             'w-full bg-saffron shadow-saffron-dark hover:bg-saffron-light',
           props.type === 'secondary' &&
@@ -49,7 +49,7 @@ const Button: Component<ButtonProps> = _props => {
         use:clickOutside={() => setDown(false)}
         tabIndex={props.isFocusable ?? true ? 0 : -1}
       >
-        {props.label}
+        {props.children}
       </button>
     </div>
   )

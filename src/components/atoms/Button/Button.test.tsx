@@ -11,7 +11,7 @@ describe('Button component', () => {
     const label = 'This is a button'
 
     const { getByRole } = render(() => (
-      <Button label={label} onClick={handleClick} />
+      <Button onClick={handleClick}>{label}</Button>
     ))
 
     expect(getByRole('button')).toHaveTextContent(label)
@@ -21,7 +21,7 @@ describe('Button component', () => {
     const handleClick = vi.fn()
     const { click } = userEvent.setup()
     const { getByRole } = render(() => (
-      <Button label="This is a button" onClick={handleClick} />
+      <Button onClick={handleClick}>Click me!</Button>
     ))
     expect(handleClick).not.toHaveBeenCalled()
 

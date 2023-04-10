@@ -19,15 +19,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
+  render: props => <Button {...props}>NEW GAME (VS PLAYER)</Button>,
   args: {
     type: 'primary',
-    label: 'NEW GAME (VS CPU)',
   },
 }
 
 export const Secondary: Story = {
   args: {
     type: 'secondary',
-    label: 'NEW GAME (VS PLAYER)',
   },
 }

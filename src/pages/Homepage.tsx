@@ -7,6 +7,7 @@ import Modal from '../components/atoms/Modal/Modal'
 import { useI18n } from '../i18n/context'
 import store from '../store/store'
 import Marks from '../components/atoms/Marks/Marks'
+import Tile from '../components/atoms/Tile/Tile'
 
 const HomePage: Component = () => {
   const [globalStore, setGlobalStore] = store
@@ -34,7 +35,7 @@ const HomePage: Component = () => {
       >
         <Marks />
 
-        <div class="my-10 flex w-full flex-col items-center justify-center rounded-2xl bg-te-papa-green px-[24px] pb-8 pt-6 tracking-wide shadow-[inset_0_-8px_0_rgba(0,0,0,0.3)]">
+        <Tile class="my-10 flex w-full flex-col items-center justify-center px-[24px] pb-8 pt-6 tracking-wide">
           <h1 class="mx-10 text-lg font-bold text-casper">
             {t('main.pickMark.label')}
           </h1>
@@ -49,24 +50,26 @@ const HomePage: Component = () => {
           <p class="text-sm font-medium tracking-wider text-casper opacity-50">
             {t('main.pickMark.reminder')}
           </p>
-        </div>
+        </Tile>
 
         <Button
           class="mb-7 w-full"
-          label={t('main.newPVEGame')}
           onClick={() => {
             setGlobalStore({ appState: 'game' })
           }}
           isFocusable={!isModalOpen()}
-        />
+        >
+          {t('main.newPVEGame')}
+        </Button>
         <Button
           ref={pvpButtonRef!}
           class="w-full"
-          label={t('main.newPVPGame')}
           type="secondary"
           onClick={() => setModalOpen(true)}
           isFocusable={!isModalOpen()}
-        />
+        >
+          {t('main.newPVPGame')}
+        </Button>
       </div>
 
       <Modal
@@ -86,13 +89,14 @@ const HomePage: Component = () => {
           <div class="mt-8 flex items-center justify-center">
             <Button
               ref={cancelButtonRef!}
-              label={t('main.cancel')}
               type="tertiary"
               onClick={() => {
                 setModalOpen(false)
                 pvpButtonRef.focus()
               }}
-            />
+            >
+              {t('main.cancel')}
+            </Button>
           </div>
         </div>
       </Modal>

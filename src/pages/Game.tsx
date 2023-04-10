@@ -14,11 +14,13 @@ const GamePage: Component<GamePageProps> = props => {
   return (
     <Button
       class={clsx(props.class, 'relative')}
-      label="Back!"
+      type="tertiary"
       onClick={() => {
         setGlobalStore({ appState: 'config' })
       }}
-    />
+    >
+      <img src="/img/icon-restart.52330686.svg" />
+    </Button>
   )
 }
 
