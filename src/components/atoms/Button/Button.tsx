@@ -42,7 +42,7 @@ const Button: Component<ButtonProps> = (_props) => {
             : 'top-0 shadow-[inset_0_-8px_0_#cc8b13]'
         )}
         onMouseDown={() => setDown(true)}
-        onMouseUp={(e) => setDown(false)}
+        onMouseUp={() => setDown(false)}
         onClick={() => {
           props.onClick()
         }}

@@ -57,6 +57,7 @@
     "i18next": "^22.4.14",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
-    "solid-js": "^1.6.10"
+    "solid-js": "^1.6.10",
+    "solid-transition-group": "^0.2.2"
   }
 }

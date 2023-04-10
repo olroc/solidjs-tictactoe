@@ -33,6 +33,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   solid-js: ^1.6.10
+  solid-transition-group: ^0.2.2
   storybook: ^7.0.2
   storybook-solidjs: ^1.0.0-beta.2
   storybook-solidjs-vite: ^1.0.0-beta.2
@@ -49,6 +50,7 @@ dependencies:
   i18next-browser-languagedetector: 7.0.1
   i18next-http-backend: 2.2.0
   solid-js: 1.6.10
+  solid-transition-group: 0.2.2_solid-js@1.6.10
 
 devDependencies:
   '@solidjs/testing-library': 0.7.0_solid-js@1.6.10
@@ -3092,6 +3094,31 @@ packages:
 
   /@sinclair/typebox/0.25.24:
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
+
+  /@solid-primitives/refs/1.0.2_solid-js@1.6.10:
+    resolution: {integrity: sha512-qnqQRdYbsENlVx86QCfftRKGZ/9zUJMGK9U85xDRymocEyeUXxdxgq0FeyGhvgg4A25spJVwHmuZUGY0aMBBLA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.0.0_solid-js@1.6.10
+      solid-js: 1.6.10
+    dev: false
+
+  /@solid-primitives/transition-group/1.0.1_solid-js@1.6.10:
+    resolution: {integrity: sha512-StVQs7BVGQa1uo6dD19wqOgfGMxu3gL/bvPHUV/NBJaiNX5R5e7dPb6lz6zR1RdTho3M+3Mv8jUHKd/aKuhL4w==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.6.10
+    dev: false
+
+  /@solid-primitives/utils/6.0.0_solid-js@1.6.10:
+    resolution: {integrity: sha512-SSu12+vvU6J8SVWW9eGV+dqiMsc0WG1Oy8YYY9AWzRzssmzNXg/uexaW+0eqTuj8JcRAaGplMDjhraB01HOidA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.6.10
+    dev: false
 
   /@solidjs/testing-library/0.7.0_solid-js@1.6.10:
     resolution: {integrity: sha512-mTSINHdcLc6rn9xWWJfzPkY0zyKtLb7QAM2CouVw2QvNZ0mgfk3z2tpaprismlE/YLn+I3ij4BqiV3ocvI+hIQ==}
@@ -8899,6 +8926,16 @@ packages:
       '@babel/types': 7.20.7
       solid-js: 1.6.10
     dev: true
+
+  /solid-transition-group/0.2.2_solid-js@1.6.10:
+    resolution: {integrity: sha512-6nB90UM2PB6VsIo/UCkmZmlIJb9mnmP7QPGrePqQJWtpUiRs5PbhkB8fvdyv9g/RPHWYpdJhQgxL6n++WmTt5A==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/refs': 1.0.2_solid-js@1.6.10
+      '@solid-primitives/transition-group': 1.0.1_solid-js@1.6.10
+      solid-js: 1.6.10
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
