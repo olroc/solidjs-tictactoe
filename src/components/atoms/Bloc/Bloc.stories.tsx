@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from 'storybook-solidjs'
 import type { Component } from 'solid-js'
 
-import type { TileProps } from './Tile'
-import Tile from './Tile'
+import type { BlocProps } from './Bloc'
+import Bloc from './Bloc'
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
 const meta = {
-  title: 'Atoms/Tile',
-  component: Tile,
+  title: 'Atoms/Bloc',
+  component: Bloc,
   tags: ['autodocs'],
   decorators: [
     Story => (
@@ -16,50 +16,50 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Tile>
+} satisfies Meta<typeof Bloc>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const StyledTile: Component<TileProps> = props => {
+const StyledBloc: Component<BlocProps> = props => {
   return (
-    <Tile
+    <Bloc
       {...props}
       class="flex items-center justify-center px-3 pb-4 pt-2 text-white"
     >
       Some text content
-    </Tile>
+    </Bloc>
   )
 }
 
 export const Primary: Story = {
-  render: props => <StyledTile {...props}>Some text content</StyledTile>,
+  render: props => <StyledBloc {...props}>Some text content</StyledBloc>,
   args: { type: 'primary' },
 }
 
 export const Secondary: Story = {
-  render: props => <StyledTile {...props}>Some text content</StyledTile>,
+  render: props => <StyledBloc {...props}>Some text content</StyledBloc>,
   args: { type: 'secondary' },
 }
 
 export const Tertiary: Story = {
-  render: props => <StyledTile {...props}>Some text content</StyledTile>,
+  render: props => <StyledBloc {...props}>Some text content</StyledBloc>,
   args: { type: 'tertiary' },
 }
 
 export const WithNoType: Story = {
-  render: props => <StyledTile {...props}>Some text content</StyledTile>,
+  render: props => <StyledBloc {...props}>Some text content</StyledBloc>,
   args: {},
 }
 
 export const WithoutShadow: Story = {
   render: props => (
-    <Tile
+    <Bloc
       {...props}
       class="flex items-center justify-center px-3 pb-3 pt-2 text-white"
     >
       Some text content
-    </Tile>
+    </Bloc>
   ),
   args: { withShadow: false },
 }

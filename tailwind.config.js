@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'big-stone': '10212a',
+        'big-stone': '#10212a',
         casper: {
           dark: '#6b8997',
           DEFAULT: '#a8bfc9',

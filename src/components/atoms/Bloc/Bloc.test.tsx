@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { render } from '@solidjs/testing-library'
 import '@testing-library/jest-dom'
 
-import Tile from './Tile'
+import Bloc from './Bloc'
 
-describe('Tile component', () => {
+describe('Bloc component', () => {
   it('should render the children prop', () => {
     const text = 'Some test content'
 
-    const { getByText } = render(() => <Tile>{text}</Tile>)
+    const { getByText } = render(() => <Bloc>{text}</Bloc>)
 
     expect(getByText(text)).toBeInTheDocument()
   })

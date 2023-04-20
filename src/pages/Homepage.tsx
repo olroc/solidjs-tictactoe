@@ -5,9 +5,9 @@ import Switch from '../components/atoms/Switch/Switch'
 import Button from '../components/atoms/Button/Button'
 import Modal from '../components/atoms/Modal/Modal'
 import { useI18n } from '../i18n/context'
-import store from '../store/store'
+import store, { createNewGrid } from '../store/store'
 import Marks from '../components/atoms/Marks/Marks'
-import Tile from '../components/atoms/Tile/Tile'
+import Bloc from '../components/atoms/Bloc/Bloc'
 
 const HomePage: Component = () => {
   const [globalStore, setGlobalStore] = store
@@ -35,7 +35,7 @@ const HomePage: Component = () => {
       >
         <Marks />
 
-        <Tile class="my-10 flex w-full flex-col items-center justify-center px-[24px] pb-8 pt-6 tracking-wide">
+        <Bloc class="my-10 flex w-full flex-col items-center justify-center px-[24px] pb-8 pt-6 tracking-wide">
           <h1 class="mx-10 text-lg font-bold text-casper">
             {t('main.pickMark.label')}
           </h1>
@@ -50,12 +50,15 @@ const HomePage: Component = () => {
           <p class="text-sm font-medium tracking-wider text-casper opacity-50">
             {t('main.pickMark.reminder')}
           </p>
-        </Tile>
+        </Bloc>
 
         <Button
           class="mb-7 w-full"
           onClick={() => {
-            setGlobalStore({ appState: 'game' })
+            setGlobalStore({
+              appState: 'game',
+              playGrid: createNewGrid(),
+            })
           }}
           isFocusable={!isModalOpen()}
         >
